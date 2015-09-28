@@ -51,8 +51,10 @@ namespace cx_extractor
             html = Regex.Replace(html,"(?is)<!--.*?-->", "");				// remove html comment
             html = Regex.Replace(html,"(?is)<script.*?>.*?</script>", ""); // remove javascript
             html = Regex.Replace(html,"(?is)<style.*?>.*?</style>", "");   // remove css
-            html = Regex.Replace(html,"&.{2,5};|&#.{2,5};", " ");			// remove special char
+            html = Regex.Replace(html,"&.{2,5};|&#.{2,5};", "");			// remove special char
             html = Regex.Replace(html, "(?is)<.*?>", "");
+            html = html.Replace("\r", "");
+            html = html.Replace("\t", "");
             html = html.Replace(" ","");
         }
 
